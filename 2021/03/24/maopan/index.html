@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style = >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="Ganto的个人博客">
+    <title>猫盘刷机、救砖</title>
+    <link rel="icon" href="/images/g.png">
+    <script src="/lib/jquery.js"></script>
+    
+    <!-- animate.css IN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate.css OUT -->
+
+    <!-- highlight.js IN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/styles/androidstudio.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- highlight.js OUT -->
+    
+    <!-- fancybox IN -->
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+    <script src="/lib/jquery.fancybox.min.js"></script>
+    <script>
+        $(function(){
+            $("figure").addClass("hljs");
+            $("section img").each(function(){
+                $(this).wrap("<a data-fancybox='images' href='"+ $(this).attr('src') +"'>");
+            })
+        })
+    </script>
+    <!-- fancybox OUT -->
+    
+    <!-- BaiDuTongJi -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?e9903012f74ea3f7bb149b43c92a2a8c";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+        
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <header>
+    <nav>
+        <div class="name animate__animated animate__zoomInDown">
+            <span class="g">
+                <a href="/"></a>
+                Ganto
+            </span>
+            <span class="i">但愿可以成为有趣的人</span>
+        </div>
+    </nav>
+</header>
+    <section class="animate__animated animate__fadeInLeft">
+    <nav>
+        <div class="aTitle">
+            <p>猫盘刷机、救砖</p>
+            
+                
+            
+            <i>2021-03-24 07:17:05</i>
+        </div>
+        <h1 id="刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）"><a href="#刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）" class="headerlink" title="刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）"></a>刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）</h1><p>以下命令执行过程中，或者没提示断电操作，请不要断电，以免变砖</p>
+<p>先通过TTL转USB(公)线连接猫盘和电脑，不用连接电源和网线</p>
+<p><img src="/ArticleResources/maopan/image-20210323204623660.png" alt="image-20210323204623660"></p>
+<p>猫盘针脚从上到下连接RXD，TXD，GND</p>
+<p>连接好TTL转USB(公)线后，打开Xshell软件，新建会话，名称随便起，协议选择SERIAL，然后点击左侧SERIAL选项</p>
+<p>Port：COM3（不一定是COM3，一定要自己去设备管理器中查看）</p>
+<p><img src="/ArticleResources/maopan/image-20210323205123372.png" alt="image-20210323205123372"></p>
+<p>Baud Rate：15200</p>
+<p>其他的不用动，然后点击确定，点击创建的会话连接，然后猫盘开始通电，然后回车</p>
+<p>显示Marvell&gt;&gt;就可以停下来了</p>
+<p>输入下方命令，<strong>千万别慌回车</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">loady 0x1000000<br></code></pre></td></tr></table></figure>
+
+<p>接着，在Xshell左上角 → 文件 → 传输(T) → YMODEM(Y) → 用YMODEM发送(S)，选择flash-image.bin文件，此操作是将flash-image.bin文件发送到猫盘中，速度可能稍微有点慢，但是一定要耐心等待完成，中间禁止任何操作</p>
+<p>上传完成后</p>
+<p>复制下面五句命令，一起复制第一行空格也要复制进去，然后回车，命令执行时间比较久，一定要耐心等待，直到命令执行结束</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"> <br>sf probe<br>sf erase 0x0 0x800000<br>sf write 0x1000000 0x0 0x000d4fc0<br>sf probe<br></code></pre></td></tr></table></figure>
+
+<p>输入reset命令，等待重启</p>
+<p>重启之后，插网线，拔电源(是拔电源)，打开Tftp软件</p>
+<p><img src="/ArticleResources/maopan/image-20210323210602375.png" alt="image-20210323210602375"></p>
+<p>Current Directory 的路径默认就可以了，因为full.bin文件就在此目录下，如果full.bin文件在别的路径下，选择正确即可</p>
+<p>Server interfaces 一定要选择对应的有线网卡，因为要通过有线网卡传输文件，选择好之后，记住此IP</p>
+<p>设置好Tftp软件后，打开putty软件，选择串口，然后点击左侧最后一个串口选项，</p>
+<p>连接到的串口(L)一定要再去设备管理器中确定后，再填，其他的按照图示填即可，填好之后点击打开</p>
+<p><img src="/ArticleResources/maopan/image-20210323210835902.png" alt="image-20210323210835902"></p>
+<p><img src="/ArticleResources/maopan/image-20210323210941398.png" alt="image-20210323210941398"></p>
+<p>这时猫盘通电，然后回车，出现Marvell&gt;&gt;即可</p>
+<p>依次输入以下命令然后执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">setenv serverip '169.254.133.254' #这个IP就是Tftp软件有线网卡的IP<br>setenv ipaddr '169.254.133.251' #这个IP请根据第一行IP更改，只需要修改第四组的即可，不能超过255<br>bubt full.bin spi tftp<br></code></pre></td></tr></table></figure>
+
+<p>等待刷机，刷机完成后，拔电源，装硬盘，通电，浏览器搜索<a href="http://find.synology.com/搜索你的设备安装即可" target="_blank" rel="noopener">http://find.synology.com/搜索你的设备安装即可</a></p>
+<h1 id="救砖"><a href="#救砖" class="headerlink" title="救砖"></a>救砖</h1><p>需要TTL转USB(母)线，U盘</p>
+<p>U盘格式化为FAT32格式，如果Windows10无法格式化FAT32格式，请使用DiskGenius格式化，格式化完成后，将flash_all.bin文件复制到U盘中，然后TTL转USB(母)线连接猫盘和U盘，连接TTL转USB(公)线，连接猫盘电源</p>
+<p>安装Oracle VM VirtualBox软件按，并打开，新建虚拟电脑，名称随便，文件夹默认即可，类型：Linux，版本Other：Linux (32-bit)，选择好，下一步，内存大小默认即可，下一步，不添加虚拟硬盘，点击创建</p>
+<p>点击设置，点左侧USB设备，勾选猫盘设备(即TTL线转USB(公)线设备)</p>
+<p>点击左侧存储，点击没有盘片，点击分配光驱最右侧的蓝圆盘，选择虚拟光盘文件ezremaster.iso，选择好后，点击OK</p>
+<p>点击启动虚拟机，显示boot: 时，点击一下回车，然后显示 tc@box:~$ 即可</p>
+<p>输入以下命令，回车执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo sh /wtpd/shua.sh<br></code></pre></td></tr></table></figure>
+
+<p>这时显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">/dev/ttyUSB0<br>port:<br></code></pre></td></tr></table></figure>
+
+<p>这时注意/dev/ttyUSB0，这里是USB0，所以下方输入0回车即可，如果是USB1输入1回车</p>
+<p>等待运行+++++++++++++</p>
+<p>等不再显示+++++++显示别的时，回车，显示Maevell&gt;&gt;</p>
+<p>输入命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bubt flash_all.bin spi usb<br></code></pre></td></tr></table></figure>
+
+<p>看到<code>Erasing 8392704 butes (2049 blocks) at offset 0 ..._</code>即代表正在进行刷入，等待即可。</p>
+<p>成功后，即代表救砖成功，即可继续上述教程刷机群晖等其他系统。</p>
+<p>至此，猫盘刷机和救砖的教程就是如此，仅供参考，刷机有风险，动手需谨慎。</p>
+
+        <div class="pagination">
+            
+        </div>
+
+        
+        <div class="criterion">
+            <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2021/03/24/maopan/">https://heri.ganto.cn/2021/03/24/maopan/</a></p>
+            <p><strong>本文更新于：</strong>2021-03-24 12:37:06</p>
+            <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
+        </div>
+        <div class="pn">
+            
+            
+            <a class="right" href="/2021/03/04/hugo/">
+                <span>Hugo</span>
+                <i>></i>
+            </a>
+            
+        </div>
+    </nav>
+</section>
+    <footer>
+    <nav>
+        <div class="me animate__animated animate__zoomInUp">
+            <span><a title="Hexo" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动</span>
+            /
+            <span><a title="Heri" href="https://github.com/ganto-cn/hexo-theme-heri" target="_blank" rel="noopener">Heri</a> 主题</span>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

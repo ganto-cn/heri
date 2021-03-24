@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style = >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="Ganto的个人博客">
+    <title>Hugo</title>
+    <link rel="icon" href="/images/g.png">
+    <script src="/lib/jquery.js"></script>
+    
+    <!-- animate.css IN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate.css OUT -->
+
+    <!-- highlight.js IN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/styles/androidstudio.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- highlight.js OUT -->
+    
+    <!-- fancybox IN -->
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+    <script src="/lib/jquery.fancybox.min.js"></script>
+    <script>
+        $(function(){
+            $("figure").addClass("hljs");
+            $("section img").each(function(){
+                $(this).wrap("<a data-fancybox='images' href='"+ $(this).attr('src') +"'>");
+            })
+        })
+    </script>
+    <!-- fancybox OUT -->
+    
+    <!-- BaiDuTongJi -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?e9903012f74ea3f7bb149b43c92a2a8c";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+        
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <header>
+    <nav>
+        <div class="name animate__animated animate__zoomInDown">
+            <span class="g">
+                <a href="/"></a>
+                Ganto
+            </span>
+            <span class="i">但愿可以成为有趣的人</span>
+        </div>
+    </nav>
+</header>
+    <section class="animate__animated animate__fadeInLeft">
+    <nav>
+        <div class="aTitle">
+            <p>Hugo</p>
+            
+                
+            
+            <i>2021-03-04 18:15:15</i>
+        </div>
+        <p>下载Hugo<br><a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener">https://github.com/gohugoio/hugo/releases</a></p>
+<p><code>hugo_0.81.0_Windows-64bit.zip</code></p>
+<p>解压Hugo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">hugo.exe<br>LICENSE<br>README.md<br></code></pre></td></tr></table></figure>
+<p>配置<code>系统变量(s)</code>下的<code>Path</code>编辑 新建，路径即为Hugo压缩包解压路径</p>
+<h3 id="hugo-version"><a href="#hugo-version" class="headerlink" title="hugo version"></a>hugo version</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">$ hugo version<br>hugo v0.81.0-59D15C97 windows&#x2F;amd64 BuildDate&#x3D;2021-02-19T17:07:12Z VendorInfo&#x3D;gohugoio<br></code></pre></td></tr></table></figure>
+<p>依次执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">$ hugo new site quickstart<br>$ cd quickstart<br>$ git init<br>$ git submodule add https:&#x2F;&#x2F;github.com&#x2F;budparr&#x2F;gohugo-theme-ananke.git themes&#x2F;ananke<br>$ echo &#39;theme &#x3D; &quot;ananke&quot;&#39; &gt;&gt; config.toml<br>$ hugo server<br></code></pre></td></tr></table></figure>
+
+        <div class="pagination">
+            
+        </div>
+
+        
+        <div class="criterion">
+            <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2021/03/04/hugo/">https://heri.ganto.cn/2021/03/04/hugo/</a></p>
+            <p><strong>本文更新于：</strong>2021-03-24 12:38:25</p>
+            <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
+        </div>
+        <div class="pn">
+            
+            <a class="left" href="/2021/03/24/maopan/">
+                <i><</i>
+                <span>猫盘刷机、救砖</span>
+            </a>
+            
+            
+            <a class="right" href="/2021/02/11/HappyNewYear2021/">
+                <span>2021新年快乐！</span>
+                <i>></i>
+            </a>
+            
+        </div>
+    </nav>
+</section>
+    <footer>
+    <nav>
+        <div class="me animate__animated animate__zoomInUp">
+            <span><a title="Hexo" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动</span>
+            /
+            <span><a title="Heri" href="https://github.com/ganto-cn/hexo-theme-heri" target="_blank" rel="noopener">Heri</a> 主题</span>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

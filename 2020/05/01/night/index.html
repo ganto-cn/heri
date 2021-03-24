@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style = >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="Ganto的个人博客">
+    <title>夜间模式</title>
+    <link rel="icon" href="/images/g.png">
+    <script src="/lib/jquery.js"></script>
+    
+    <!-- animate.css IN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate.css OUT -->
+
+    <!-- highlight.js IN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/styles/androidstudio.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- highlight.js OUT -->
+    
+    <!-- fancybox IN -->
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+    <script src="/lib/jquery.fancybox.min.js"></script>
+    <script>
+        $(function(){
+            $("figure").addClass("hljs");
+            $("section img").each(function(){
+                $(this).wrap("<a data-fancybox='images' href='"+ $(this).attr('src') +"'>");
+            })
+        })
+    </script>
+    <!-- fancybox OUT -->
+    
+    <!-- BaiDuTongJi -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?e9903012f74ea3f7bb149b43c92a2a8c";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+        
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <header>
+    <nav>
+        <div class="name animate__animated animate__zoomInDown">
+            <span class="g">
+                <a href="/"></a>
+                Ganto
+            </span>
+            <span class="i">但愿可以成为有趣的人</span>
+        </div>
+    </nav>
+</header>
+    <section class="animate__animated animate__fadeInLeft">
+    <nav>
+        <div class="aTitle">
+            <p>夜间模式</p>
+            
+                
+            
+            <i>2020-05-01 17:40:06</i>
+        </div>
+        <p>最近在逛各个大佬的博客，发现了个很有趣的功能，就是网页中的夜间模式</p>
+<p>并且切换到夜间模式，刷新页面并不会恢复</p>
+<p>然后自己试着实现这个功能</p>
+<p>直接附上代码</p>
+<p>代码写的比较糙，需要的小伙伴自行随意修改</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"><br>			*&#123;<br>				<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>				<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>			&#125;<br>			<span class="hljs-selector-tag">body</span>&#123;<br>				<span class="hljs-attribute">transition</span>: all <span class="hljs-number">1s</span>;<br>				<span class="hljs-attribute">position</span>: absolute;<br>				<span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>				<span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;<br>				<span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;<br>				<span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;<br>			&#125;<br>			<span class="hljs-selector-class">.box</span>&#123;<br>				<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>				<span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>				<span class="hljs-attribute">text-align</span>: center;<br>			&#125;<br>			<span class="hljs-selector-id">#an</span>&#123;<br>				<span class="hljs-attribute">display</span>: inline-block;<br>				<span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;<br>				<span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>				<span class="hljs-attribute">cursor</span>: pointer;<br>				<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;<br>				<span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span>;<br>				<span class="hljs-attribute">background-repeat</span>: no-repeat;<br>			&#125;<br>		</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript"><br>			<span class="hljs-comment">// 声明所用到的变量</span><br>			<span class="hljs-keyword">var</span> y = <span class="hljs-built_in">parseInt</span>(getCookie(<span class="hljs-string">"night"</span>)),<br>				a = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">"a"</span>),<br>				j,<br>				i,<br>				name,<br>				ca,<br>				c;<br>			<br>			<span class="hljs-comment">// 返回cookie指定参数的方法</span><br>			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCookie</span>(<span class="hljs-params">cname</span>)</span>&#123;<br>				name = cname + <span class="hljs-string">"="</span>;<br>				ca = <span class="hljs-built_in">document</span>.cookie.split(<span class="hljs-string">';'</span>);<br>				<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>; i&lt;ca.length; i++) &#123;<br>					c = ca[i].trim();<br>					<span class="hljs-keyword">if</span> (c.indexOf(name)==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> c.substring(name.length,c.length);<br>				&#125;<br>				<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;<br>			&#125;<br>			<br>			<span class="hljs-comment">// 判断cookie值中的night为 0 or 1 ;</span><br>			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">panduan</span>(<span class="hljs-params"></span>)</span>&#123;<br>				y = <span class="hljs-built_in">parseInt</span>(getCookie(<span class="hljs-string">"night"</span>));<br>				<span class="hljs-keyword">if</span>(y == <span class="hljs-number">0</span>)&#123; <span class="hljs-comment">// 白天模式的样式</span><br>					<span class="hljs-built_in">document</span>.body.style.backgroundColor = <span class="hljs-string">""</span>;<br>					<span class="hljs-built_in">document</span>.body.style.color = <span class="hljs-string">""</span>;<br>					<span class="hljs-comment">// $("#an").html("夜间模式"); // 切换按钮 文字 型</span><br>					$(<span class="hljs-string">"#an"</span>).css(<span class="hljs-string">"background-image"</span>, <span class="hljs-string">"url(img/夜晚.png)"</span>); <span class="hljs-comment">// 切换按钮 图标 型</span><br>					<span class="hljs-keyword">for</span>(j = <span class="hljs-number">0</span>; j &lt; a.length; j++)&#123;<br>						a[j].style.color = <span class="hljs-string">""</span><br>					&#125;<br>				&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(y == <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// 夜间模式的样式</span><br>					<span class="hljs-built_in">document</span>.body.style.backgroundColor = <span class="hljs-string">"black"</span>;<br>					<span class="hljs-built_in">document</span>.body.style.color = <span class="hljs-string">"white"</span>;<br>					<span class="hljs-comment">// $("#an").html("白天模式");</span><br>					$(<span class="hljs-string">"#an"</span>).css(<span class="hljs-string">"background-image"</span>, <span class="hljs-string">"url(img/白天.png)"</span>);<br>					<span class="hljs-keyword">for</span>(j = <span class="hljs-number">0</span>; j &lt; a.length; j++)&#123;<br>						a[j].style.color = <span class="hljs-string">"white"</span><br>					&#125;<br>				&#125;<br>			&#125;<br>			<br>			<span class="hljs-comment">// 判断night是否存在，设置初始cookie值</span><br>			<span class="hljs-keyword">if</span>(y == <span class="hljs-number">0</span>)&#123;<br>				panduan();<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(y == <span class="hljs-number">1</span>)&#123;<br>				panduan();<br>			&#125;<span class="hljs-keyword">else</span>&#123; <span class="hljs-comment">// night不存在则执行，初始化night = 0 即 白天模式</span><br>				<span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">"night = 0; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>;<br>				panduan();<br>			&#125;<br>			<br>			<span class="hljs-comment">// 刷新页面时直接执行判断方法，从而实现刷新页面</span><br>			panduan();<br>			<span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>				panduan(); <span class="hljs-comment">// 页面资源加载完成后，再次执行判断方法（可删）</span><br>				<br>				$(<span class="hljs-string">"#an"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>					<span class="hljs-keyword">if</span>(y == <span class="hljs-number">0</span>)&#123;<br>						<span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">"night = 1; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>; <span class="hljs-comment">// 修改 1 / 夜间</span><br>						panduan();<br>					&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(y == <span class="hljs-number">1</span>)&#123;<br>						<span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">"night = 0; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>; <span class="hljs-comment">// 修改 0 / 白天</span><br>						panduan();<br>					&#125;<span class="hljs-keyword">else</span>&#123;<br>						<span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">"night = 1; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>; <span class="hljs-comment">// 第一次加载，设置默认cookie值</span><br>						panduan();<br>					&#125;<br>				&#125;)<br>			&#125;<br>		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>		<br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"an"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>这是a标签<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>这是p标签<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>这是b标签<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+        <div class="pagination">
+            
+        </div>
+
+        
+        <div class="criterion">
+            <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2020/05/01/night/">https://heri.ganto.cn/2020/05/01/night/</a></p>
+            <p><strong>本文更新于：</strong>2020-12-30 00:49:41</p>
+            <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
+        </div>
+        <div class="pn">
+            
+            <a class="left" href="/2020/07/12/fair/">
+                <i><</i>
+                <span>还2020河南专升本考生一个公平</span>
+            </a>
+            
+            
+            <a class="right" href="/2020/04/18/163music/">
+                <span>网易云音乐热评</span>
+                <i>></i>
+            </a>
+            
+        </div>
+    </nav>
+</section>
+    <footer>
+    <nav>
+        <div class="me animate__animated animate__zoomInUp">
+            <span><a title="Hexo" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动</span>
+            /
+            <span><a title="Heri" href="https://github.com/ganto-cn/hexo-theme-heri" target="_blank" rel="noopener">Heri</a> 主题</span>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

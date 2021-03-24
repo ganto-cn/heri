@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style = >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="Ganto的个人博客">
+    <title>vue中的常用指令</title>
+    <link rel="icon" href="/images/g.png">
+    <script src="/lib/jquery.js"></script>
+    
+    <!-- animate.css IN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate.css OUT -->
+
+    <!-- highlight.js IN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/styles/androidstudio.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- highlight.js OUT -->
+    
+    <!-- fancybox IN -->
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+    <script src="/lib/jquery.fancybox.min.js"></script>
+    <script>
+        $(function(){
+            $("figure").addClass("hljs");
+            $("section img").each(function(){
+                $(this).wrap("<a data-fancybox='images' href='"+ $(this).attr('src') +"'>");
+            })
+        })
+    </script>
+    <!-- fancybox OUT -->
+    
+    <!-- BaiDuTongJi -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?e9903012f74ea3f7bb149b43c92a2a8c";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+        
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <header>
+    <nav>
+        <div class="name animate__animated animate__zoomInDown">
+            <span class="g">
+                <a href="/"></a>
+                Ganto
+            </span>
+            <span class="i">但愿可以成为有趣的人</span>
+        </div>
+    </nav>
+</header>
+    <section class="animate__animated animate__fadeInLeft">
+    <nav>
+        <div class="aTitle">
+            <p>vue中的常用指令</p>
+            
+                
+            
+            <i>2020-02-10 00:00:00</i>
+        </div>
+        <h1 id="VUE中的常用指令"><a href="#VUE中的常用指令" class="headerlink" title="VUE中的常用指令"></a>VUE中的常用指令</h1><h4 id="整理基本的常用指令"><a href="#整理基本的常用指令" class="headerlink" title="整理基本的常用指令"></a>整理基本的常用指令</h4><p><code>v-text</code> <code>v-html</code> <code>v-on</code> <code>v-show</code> <code>v-if</code> <code>v-bind</code> <code>v-for</code> <code>v-model</code></p>
+<h4 id="vue中的常用指令在代码中使用"><a href="#vue中的常用指令在代码中使用" class="headerlink" title="vue中的常用指令在代码中使用"></a>vue中的常用指令在代码中使用</h4><p>js代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script&gt;<br>	<span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(&#123;<br>		<span class="hljs-attr">el</span>:<span class="hljs-string">"#app"</span>,<br>		<span class="hljs-attr">data</span>:&#123;<br>			<span class="hljs-attr">message</span>:<span class="hljs-string">"&lt;b&gt;加粗字体&lt;b&gt;"</span>,<br>			<span class="hljs-attr">arr</span>:[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br>		&#125;,<br>		<span class="hljs-attr">methods</span>:&#123;<br>			<span class="hljs-attr">fun</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>				alert(<span class="hljs-number">1</span>);<br>            &#125;<br>		&#125;<br>	&#125;)<br>&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">"message"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"message"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>v-text</code> <code>v-html</code> 的区别在于<code>v-html</code> 指令可以解析出标签，而<code>v-text</code> 不能解析标签，会原封不动的将&lt;b&gt;加粗字体&lt;/b&gt;打印出来。</p>
+<h5 id="v-on-绑定的是一些事件，如-click、dblclick"><a href="#v-on-绑定的是一些事件，如-click、dblclick" class="headerlink" title="v-on / @ 绑定的是一些事件，如: click、dblclick"></a>v-on / @ 绑定的是一些事件，如: click、dblclick</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"fun"</span>&gt;</span>点击<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> @<span class="hljs-attr">:click</span>=<span class="hljs-string">"fun"</span>&gt;</span>点击<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"true"</span>&gt;</span>内容<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"true"</span>&gt;</span>内容<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>v-show</code> <code>v-if</code> 的区别在于 <code>v-show</code> 指令只是利用display样式对元素显示隐藏，而 <code>v-if</code> 是在DOM树内添加或者删除元素</p>
+<h5 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:src</span>=<span class="hljs-string">"/路径"</span>&gt;</span>a标签<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"/路径"</span>&gt;</span>a标签<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"a in arr"</span>&gt;</span>&#123;&#123;a&#125;&#125;<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="v-model双向数据绑定"><a href="#v-model双向数据绑定" class="headerlink" title="v-model双向数据绑定"></a>v-model双向数据绑定</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"message"</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+        <div class="pagination">
+            
+        </div>
+
+        
+        <div class="criterion">
+            <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2020/02/10/vue%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">https://heri.ganto.cn/2020/02/10/vue%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</a></p>
+            <p><strong>本文更新于：</strong>2020-09-26 07:58:46</p>
+            <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
+        </div>
+        <div class="pn">
+            
+            <a class="left" href="/2020/02/11/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90-API/">
+                <i><</i>
+                <span>网易云音乐 API</span>
+            </a>
+            
+            
+            <a class="right" href="/2020/01/17/onsubmit/">
+                <span>解决表单点击回车（enter）键自动刷新无法提交的问题</span>
+                <i>></i>
+            </a>
+            
+        </div>
+    </nav>
+</section>
+    <footer>
+    <nav>
+        <div class="me animate__animated animate__zoomInUp">
+            <span><a title="Hexo" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动</span>
+            /
+            <span><a title="Heri" href="https://github.com/ganto-cn/hexo-theme-heri" target="_blank" rel="noopener">Heri</a> 主题</span>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

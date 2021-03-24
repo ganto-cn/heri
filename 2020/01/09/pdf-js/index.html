@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style = >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="Ganto的个人博客">
+    <title>初识pdf.js - 强大的pdf预览工具</title>
+    <link rel="icon" href="/images/g.png">
+    <script src="/lib/jquery.js"></script>
+    
+    <!-- animate.css IN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate.css OUT -->
+
+    <!-- highlight.js IN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/styles/androidstudio.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- highlight.js OUT -->
+    
+    <!-- fancybox IN -->
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+    <script src="/lib/jquery.fancybox.min.js"></script>
+    <script>
+        $(function(){
+            $("figure").addClass("hljs");
+            $("section img").each(function(){
+                $(this).wrap("<a data-fancybox='images' href='"+ $(this).attr('src') +"'>");
+            })
+        })
+    </script>
+    <!-- fancybox OUT -->
+    
+    <!-- BaiDuTongJi -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?e9903012f74ea3f7bb149b43c92a2a8c";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+        
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <header>
+    <nav>
+        <div class="name animate__animated animate__zoomInDown">
+            <span class="g">
+                <a href="/"></a>
+                Ganto
+            </span>
+            <span class="i">但愿可以成为有趣的人</span>
+        </div>
+    </nav>
+</header>
+    <section class="animate__animated animate__fadeInLeft">
+    <nav>
+        <div class="aTitle">
+            <p>初识pdf.js - 强大的pdf预览工具</p>
+            
+                
+            
+            <i>2020-01-09 15:04:50</i>
+        </div>
+        <h2 id="pdf-js官网"><a href="#pdf-js官网" class="headerlink" title="pdf.js官网"></a>pdf.js官网</h2><p><a href="http://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">链接在此</a></p>
+<h2 id="超详细步骤"><a href="#超详细步骤" class="headerlink" title="超详细步骤"></a>超详细步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>首先就是访问pdf.js官网</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>点击官网中的“Download“按钮，将文件下载到本地</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>将从pdf.js官网下载下来的zip文件解压出来</p>
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>将解压出来的文件全部拷贝到你的整个项目中。我是新建了一个pdf.js文件夹，将解压出来的文件全部放到了这个文件夹里面</p>
+<h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><p>首先进入web文件夹下打开viewer.js，找到value: ‘XXXXXX-09.pdf’, 这个就是默认的pdf的demo文件，可以直接删除value的值，这样就确保我们可以打开多个pdf文件，删除后保存</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">defaultZoomValue: &#123;<br>    <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>,<br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<h3 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../pdf.js/web/viewer.html?file=http://ganto.xyz/study/Advanced mathematics/_0.pdf"</span>&gt;</span>高数预备知识作业_0<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>配置自己项目<br>这里我们用a标签为例，大家可以看到href的内容，前面“../pdf.js/web/viewer.html”是web-&gt;viewer.html这个html文件的路径，然后?file= 后面的“<a href="http://ganto.cn/study/Advanced" target="_blank" rel="noopener">http://ganto.cn/study/Advanced</a> mathematics/_0.pdf”就是自己项目中的pdf文件的路径。理解这样写并不难，大家打开web路径下的这个viewer.html文件，是一个空的pdf.js插件提供的一个基于浏览器的pdf阅读器，而a标签中的href的内容大致可以理解为：将pdf文件放到pdf阅读器中打开（浏览）。并且这个阅读器是基于浏览器的，所以就实现了移动端浏览器直接用pdf.js插件提供的pdf阅读器浏览pdf文件的目的！</p>
+
+        <div class="pagination">
+            
+        </div>
+
+        
+        <div class="criterion">
+            <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2020/01/09/pdf-js/">https://heri.ganto.cn/2020/01/09/pdf-js/</a></p>
+            <p><strong>本文更新于：</strong>2021-03-04 17:09:18</p>
+            <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
+        </div>
+        <div class="pn">
+            
+            <a class="left" href="/2020/01/15/advance/">
+                <i><</i>
+                <span>图片预加载</span>
+            </a>
+            
+            
+            <a class="right" href="/2000/06/15/hello-world/">
+                <span>Hello World</span>
+                <i>></i>
+            </a>
+            
+        </div>
+    </nav>
+</section>
+    <footer>
+    <nav>
+        <div class="me animate__animated animate__zoomInUp">
+            <span><a title="Hexo" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动</span>
+            /
+            <span><a title="Heri" href="https://github.com/ganto-cn/hexo-theme-heri" target="_blank" rel="noopener">Heri</a> 主题</span>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

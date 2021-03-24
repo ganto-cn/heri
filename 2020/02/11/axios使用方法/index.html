@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style = >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="Ganto的个人博客">
+    <title>axios使用方法</title>
+    <link rel="icon" href="/images/g.png">
+    <script src="/lib/jquery.js"></script>
+    
+    <!-- animate.css IN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate.css OUT -->
+
+    <!-- highlight.js IN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/styles/androidstudio.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- highlight.js OUT -->
+    
+    <!-- fancybox IN -->
+    <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+    <script src="/lib/jquery.fancybox.min.js"></script>
+    <script>
+        $(function(){
+            $("figure").addClass("hljs");
+            $("section img").each(function(){
+                $(this).wrap("<a data-fancybox='images' href='"+ $(this).attr('src') +"'>");
+            })
+        })
+    </script>
+    <!-- fancybox OUT -->
+    
+    <!-- BaiDuTongJi -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?e9903012f74ea3f7bb149b43c92a2a8c";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+        
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <header>
+    <nav>
+        <div class="name animate__animated animate__zoomInDown">
+            <span class="g">
+                <a href="/"></a>
+                Ganto
+            </span>
+            <span class="i">但愿可以成为有趣的人</span>
+        </div>
+    </nav>
+</header>
+    <section class="animate__animated animate__fadeInLeft">
+    <nav>
+        <div class="aTitle">
+            <p>axios使用方法</p>
+            
+                
+            
+            <i>2020-02-11 00:00:00</i>
+        </div>
+        <h4 id="快速了解AXIOS"><a href="#快速了解AXIOS" class="headerlink" title="快速了解AXIOS"></a>快速了解AXIOS</h4><h5 id="什么是axios"><a href="#什么是axios" class="headerlink" title="什么是axios"></a>什么是axios</h5><p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</p>
+<h5 id="axios的特性"><a href="#axios的特性" class="headerlink" title="axios的特性"></a>axios的特性</h5><ul>
+<li>从浏览器中创建 XMLHttpRequests</li>
+<li>从 node.js 创建 http 请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应</li>
+<li>转换请求数据和响应数据</li>
+<li>取消请求</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持防御 XSRF</li>
+</ul>
+<h4 id="部署到项目中"><a href="#部署到项目中" class="headerlink" title="部署到项目中"></a>部署到项目中</h4><p>直接导入在线js库，就可以在项目中使用axios了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;axios&#x2F;dist&#x2F;axios.min.js&quot;&gt;&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">axios.get(<span class="hljs-string">"https://autumnfish.cn/api/joke/list?num=1"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">success</span>)</span>&#123;<br>  <span class="hljs-built_in">console</span>.log(success);<br>&#125;).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>&#123;<br>  <span class="hljs-built_in">console</span>.log(error);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>此链接：<a href="https://autumnfish.cn/api/joke/list?num=1" target="_blank" rel="noopener">https://autumnfish.cn/api/joke/list?num=1</a> 为获取随机笑话的api接口</p>
+<h4 id="AXIOS与VUE结合使用"><a href="#AXIOS与VUE结合使用" class="headerlink" title="AXIOS与VUE结合使用"></a>AXIOS与VUE结合使用</h4><p>将axios请求数据代码添加入methods中，其他的语法和非vue项目中请求一样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">methods:&#123;<br>  axios.get(<span class="hljs-string">"请求数据地址"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">success</span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(success);<br>  &#125;).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(error);<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+        <div class="pagination">
+            
+        </div>
+
+        
+        <div class="criterion">
+            <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2020/02/11/axios%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">https://heri.ganto.cn/2020/02/11/axios%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</a></p>
+            <p><strong>本文更新于：</strong>2020-09-26 07:57:55</p>
+            <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
+        </div>
+        <div class="pn">
+            
+            <a class="left" href="/2020/02/15/%E5%85%B3%E4%BA%8EJavaScript%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%9A%84%E6%95%B4%E7%90%86/">
+                <i><</i>
+                <span>关于JavaScript中常用方法的整理</span>
+            </a>
+            
+            
+            <a class="right" href="/2020/02/11/vue%E7%BB%83%E4%B9%A0%E5%AE%9E%E4%BE%8B/">
+                <span>vue练习实例</span>
+                <i>></i>
+            </a>
+            
+        </div>
+    </nav>
+</section>
+    <footer>
+    <nav>
+        <div class="me animate__animated animate__zoomInUp">
+            <span><a title="Hexo" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动</span>
+            /
+            <span><a title="Heri" href="https://github.com/ganto-cn/hexo-theme-heri" target="_blank" rel="noopener">Heri</a> 主题</span>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>
