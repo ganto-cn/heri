@@ -71,11 +71,11 @@
         </div>
         <h1 id="刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）"><a href="#刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）" class="headerlink" title="刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）"></a>刷机（无需U盘，只需要TTL线和网线和电源线和猫盘和电脑和鼠标和键盘和电和人）</h1><p>以下命令执行过程中，或者没提示断电操作，请不要断电，以免变砖</p>
 <p>先通过TTL转USB(公)线连接猫盘和电脑，不用连接电源和网线</p>
-<p><img src="/ArticleResources/maopan/image-20210323204623660.png" alt="image-20210323204623660"></p>
+<p><img src="/ArticleResources/mao/image-20210323204623660.png" alt="image-20210323204623660"></p>
 <p>猫盘针脚从上到下连接RXD，TXD，GND</p>
 <p>连接好TTL转USB(公)线后，打开Xshell软件，新建会话，名称随便起，协议选择SERIAL，然后点击左侧SERIAL选项</p>
 <p>Port：COM3（不一定是COM3，一定要自己去设备管理器中查看）</p>
-<p><img src="/ArticleResources/maopan/image-20210323205123372.png" alt="image-20210323205123372"></p>
+<p><img src="/ArticleResources/mao/image-20210323205123372.png" alt="image-20210323205123372"></p>
 <p>Baud Rate：15200</p>
 <p>其他的不用动，然后点击确定，点击创建的会话连接，然后猫盘开始通电，然后回车</p>
 <p>显示Marvell&gt;&gt;就可以停下来了</p>
@@ -89,18 +89,18 @@
 
 <p>输入reset命令，等待重启</p>
 <p>重启之后，插网线，拔电源(是拔电源)，打开Tftp软件</p>
-<p><img src="/ArticleResources/maopan/image-20210323210602375.png" alt="image-20210323210602375"></p>
+<p><img src="/ArticleResources/mao/image-20210323210602375.png" alt="image-20210323210602375"></p>
 <p>Current Directory 的路径默认就可以了，因为full.bin文件就在此目录下，如果full.bin文件在别的路径下，选择正确即可</p>
 <p>Server interfaces 一定要选择对应的有线网卡，因为要通过有线网卡传输文件，选择好之后，记住此IP</p>
 <p>设置好Tftp软件后，打开putty软件，选择串口，然后点击左侧最后一个串口选项，</p>
 <p>连接到的串口(L)一定要再去设备管理器中确定后，再填，其他的按照图示填即可，填好之后点击打开</p>
-<p><img src="/ArticleResources/maopan/image-20210323210835902.png" alt="image-20210323210835902"></p>
-<p><img src="/ArticleResources/maopan/image-20210323210941398.png" alt="image-20210323210941398"></p>
+<p><img src="/ArticleResources/mao/image-20210323210835902.png" alt="image-20210323210835902"></p>
+<p><img src="/ArticleResources/mao/image-20210323210941398.png" alt="image-20210323210941398"></p>
 <p>这时猫盘通电，然后回车，出现Marvell&gt;&gt;即可</p>
 <p>依次输入以下命令然后执行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">setenv serverip '169.254.133.254' #这个IP就是Tftp软件有线网卡的IP<br>setenv ipaddr '169.254.133.251' #这个IP请根据第一行IP更改，只需要修改第四组的即可，不能超过255<br>bubt full.bin spi tftp<br></code></pre></td></tr></table></figure>
 
-<p>等待刷机，刷机完成后，拔电源，装硬盘，通电，浏览器搜索<a href="http://find.synology.com/" target="_blank" rel="noopener"></a>搜索你的设备安装即可</p>
+<p>等待刷机，刷机完成后，拔电源，装硬盘，通电，浏览器搜索<a href="http://find.synology.com/" target="_blank" rel="noopener">find.synology.com</a>搜索你的设备安装即可</p>
 <h1 id="救砖"><a href="#救砖" class="headerlink" title="救砖"></a>救砖</h1><p>需要TTL转USB(母)线，U盘</p>
 <p>U盘格式化为FAT32格式，如果Windows10无法格式化FAT32格式，请使用DiskGenius格式化，格式化完成后，将flash_all.bin文件复制到U盘中，然后TTL转USB(母)线连接猫盘和U盘，连接TTL转USB(公)线，连接猫盘电源</p>
 <p>安装Oracle VM VirtualBox软件按，并打开，新建虚拟电脑，名称随便，文件夹默认即可，类型：Linux，版本Other：Linux (32-bit)，选择好，下一步，内存大小默认即可，下一步，不添加虚拟硬盘，点击创建</p>
@@ -130,7 +130,7 @@
         
         <div class="criterion">
             <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2021/03/24/maopan/">https://heri.ganto.cn/2021/03/24/maopan/</a></p>
-            <p><strong>本文更新于：</strong>2021-03-24 12:51:10</p>
+            <p><strong>本文更新于：</strong>2021-03-24 12:55:10</p>
             <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
         </div>
         <div class="pn">
