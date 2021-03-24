@@ -122,6 +122,18 @@
 <p>看到<code>Erasing 8392704 butes (2049 blocks) at offset 0 ..._</code>即代表正在进行刷入，等待即可。</p>
 <p>成功后，即代表救砖成功，即可继续上述教程刷机群晖等其他系统。</p>
 <p>至此，猫盘刷机和救砖的教程就是如此，仅供参考，刷机有风险，动手需谨慎。</p>
+<h1 id="DS119j-升级-DS120j"><a href="#DS119j-升级-DS120j" class="headerlink" title="DS119j 升级 DS120j"></a>DS119j 升级 DS120j</h1><p>在群晖系统中打开SSH功能</p>
+<p>打WinSCP软件，协议选择SCP，用户名密码是群晖的管理员用户密码，主机名是群晖系统的ip地址，端口号默认22，保存登录</p>
+<p>然后将full.bin文件拷贝到tmp目录下，拷贝完全后关闭WinSCP软件即可</p>
+<p>打开putty软件，主机名依然是群晖系统的ip地址，端口号默认22，连接类型SSH，设置好后，点击打开，这时需要输入群晖管理员的账号用户名然后回车，接着输入群晖管理员账号的密码</p>
+<p>输入命令 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo -i<br></code></pre></td></tr></table></figure>
+<p>再此输入群晖管理员账号密码</p>
+<p>输入命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /tmp<br></code></pre></td></tr></table></figure>
+<p>依次输入以下四个命令，一条一条输入，前三条运行比较慢，耐心等待</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">dd if=/tmp/full.bin of=/dev/mtdblock0 bs=1 skip=0 count=$((0x000d5000))<br><br>dd if=/tmp/full.bin of=/dev/mtdblock1 bs=1 skip=$((0x000d5000)) count=$((0x00306000))<br><br>dd if=/tmp/full.bin of=/dev/mtdblock2 bs=1 skip=$((0x003db000)) count=$((0x00410000))<br><br>dd if=/tmp/full.bin of=/dev/mtdblock3 bs=1 skip=$((0x007eb000)) count=$((0x00010000))<br></code></pre></td></tr></table></figure>
+<p>命令执行完后，重启猫盘，在浏览器打开<a href="http://find.synology.com" target="_blank" rel="noopener">find.synology.com</a>安装即可</p>
 
         <div class="pagination">
             
@@ -130,7 +142,7 @@
         
         <div class="criterion">
             <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2021/03/24/maopan/">https://heri.ganto.cn/2021/03/24/maopan/</a></p>
-            <p><strong>本文更新于：</strong>2021-03-24 12:55:10</p>
+            <p><strong>本文更新于：</strong>2021-03-24 22:25:02</p>
             <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
         </div>
         <div class="pn">
