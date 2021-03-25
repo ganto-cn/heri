@@ -121,7 +121,7 @@
 
 <p>看到<code>Erasing 8392704 butes (2049 blocks) at offset 0 ..._</code>即代表正在进行刷入，等待即可</p>
 <p>成功后，即代表救砖成功，即可继续上述教程刷机群晖等其他系统</p>
-<h1 id="DS119j-升级-DS120j-（用此方法，我是一直没成功，先插眼收藏，等以后再研究）"><a href="#DS119j-升级-DS120j-（用此方法，我是一直没成功，先插眼收藏，等以后再研究）" class="headerlink" title="DS119j 升级 DS120j （用此方法，我是一直没成功，先插眼收藏，等以后再研究）"></a>DS119j 升级 DS120j （用此方法，我是一直没成功，先插眼收藏，等以后再研究）</h1><p>在群晖系统中打开SSH功能<br>打WinSCP软件，协议选择SCP，用户名密码是群晖的管理员用户密码，主机名是群晖系统的ip地址，端口号默认22，保存登录</p>
+<h1 id="DS119j-刷-DS120j-（用此方法，我是一直没成功，先插眼收藏，等以后再研究）"><a href="#DS119j-刷-DS120j-（用此方法，我是一直没成功，先插眼收藏，等以后再研究）" class="headerlink" title="DS119j 刷 DS120j （用此方法，我是一直没成功，先插眼收藏，等以后再研究）"></a>DS119j 刷 DS120j （用此方法，我是一直没成功，先插眼收藏，等以后再研究）</h1><p>在群晖系统中打开SSH功能<br>打WinSCP软件，协议选择SCP，用户名密码是群晖的管理员用户密码，主机名是群晖系统的ip地址，端口号默认22，保存登录</p>
 <p>然后将full.bin文件拷贝到tmp目录下，拷贝完全后关闭WinSCP软件即可</p>
 <p>打开putty软件，主机名依然是群晖系统的ip地址，端口号默认22，连接类型SSH，设置好后，点击打开，这时需要输入群晖管理员的账号用户名然后回车，接着输入群晖管理员账号的密码</p>
 <p>输入命令 </p>
@@ -134,7 +134,7 @@
 <p>命令执行完后，重启猫盘，在浏览器打开<a href="http://find.synology.com" target="_blank" rel="noopener">find.synology.com</a>安装即可</p>
 <h1 id="DSM6-2-安装-DSM7-0Beta版"><a href="#DSM6-2-安装-DSM7-0Beta版" class="headerlink" title="DSM6.2 安装 DSM7.0Beta版"></a>DSM6.2 安装 DSM7.0Beta版</h1><p>直接去<a href="https://prerelease.synology.cn/en-global/download/dsm70_beta" target="_blank" rel="noopener">官方下载</a>相对应型号的DSM7.0的包</p>
 <p>然后在群晖系统中，点击控制面板 -&gt; 更新和还原 -&gt; 手动更新DSM，然后选择下载的DSM7.0的包安装即可。</p>
-<h1 id="DSM7-0降级DSM6-2"><a href="#DSM7-0降级DSM6-2" class="headerlink" title="DSM7.0降级DSM6.2"></a>DSM7.0降级DSM6.2</h1><p>在群晖系统中，点击File Station -&gt; 新增 -&gt; 新增共享文件夹 ，名称随便取，依次下一步，创建完成后，将VERSION文件上传到新建的文件夹中。</p>
+<h1 id="DSM7-0-降级-DSM6-2"><a href="#DSM7-0-降级-DSM6-2" class="headerlink" title="DSM7.0 降级 DSM6.2"></a>DSM7.0 降级 DSM6.2</h1><p>在群晖系统中，点击File Station -&gt; 新增 -&gt; 新增共享文件夹 ，名称随便取，依次下一步，创建完成后，将VERSION文件上传到新建的文件夹中。</p>
 <p>然后打开任务计划，新增一个任务，复制命令进去 <code>cp /volume1/此处的名字换成你所创建的共享文件夹名字/VERSION/etc.defaults</code>，注意命令中的中文提示，创建完成后，点击运行即可。</p>
 <p>然后在更新和还原中选择DSM6.2的系统包，安装即可。</p>
 
@@ -145,7 +145,7 @@
         
         <div class="criterion">
             <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2021/03/24/maopan/">https://heri.ganto.cn/2021/03/24/maopan/</a></p>
-            <p><strong>本文更新于：</strong>2021-03-25 18:37:18</p>
+            <p><strong>本文更新于：</strong>2021-03-25 18:40:09</p>
             <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
         </div>
         <div class="pn">
