@@ -100,6 +100,9 @@
 <p>依次输入以下命令然后执行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">setenv serverip '169.254.133.254' #这个IP就是Tftp软件有线网卡的IP<br>setenv ipaddr '169.254.133.251' #这个IP请根据第一行IP更改，只需要修改第四组的即可，不能超过255<br>bubt full.bin spi tftp<br></code></pre></td></tr></table></figure>
 
+<p>命令输入完后显示如下，即代表正在刷入，请耐心等待，等两条命令最后都显示<code>Done！</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">Erasing 8392704 bytes (2049 blocks) at offset 0 ...Done!<br>Writing 8388608 bytes from 0x8000000 to offset 0 ...<br></code></pre></td></tr></table></figure>
+
 <p>等待刷机，刷机完成后，拔电源，装硬盘，通电，浏览器搜索<a href="http://find.synology.com/" target="_blank" rel="noopener">find.synology.com</a>搜索你的设备安装即可</p>
 <h1 id="救砖"><a href="#救砖" class="headerlink" title="救砖"></a>救砖</h1><p>需要TTL转USB(母)线，U盘</p>
 <p>U盘格式化为FAT32格式，如果Windows10无法格式化FAT32格式，请使用DiskGenius格式化，格式化完成后，将flash_all.bin文件复制到U盘中，然后TTL转USB(母)线连接猫盘和U盘，连接TTL转USB(公)线，连接猫盘电源</p>
@@ -145,7 +148,7 @@
         
         <div class="criterion">
             <p><strong>本文链接：</strong><a href="https://heri.ganto.cn/2021/03/24/maopan/">https://heri.ganto.cn/2021/03/24/maopan/</a></p>
-            <p><strong>本文更新于：</strong>2021-03-25 18:40:09</p>
+            <p><strong>本文更新于：</strong>2021-03-25 22:51:40</p>
             <p><strong>小站声明：</strong>如果你需要“转载”、“引用”小站的文章，可以不需要作者同意，请务必标明出处和文章链接。</p>
         </div>
         <div class="pn">
