@@ -162,7 +162,7 @@ section {
 }
 section>nav {
   width: 100%;
-  max-width: 666px;
+  max-width: 900px;
   margin: auto;
   line-height: 1.5rem;
 }
@@ -256,6 +256,7 @@ section>nav>h1::after {
 }
 section>nav img {
   width: 100%;
+  max-width: 400px;
 }
 section .criterion {
   font-size: 14px;
@@ -265,6 +266,7 @@ section .criterion {
   color: var(--color);
   margin: 30px 0 0 0;
   word-break: break-all;
+  border-radius: 0px 4px 4px 0px;
 }
 section .criterion a {
   display: inline;
@@ -290,6 +292,7 @@ blockquote {
   color: var(--color);
   margin: 30px 0 0 0;
   word-break: break-all;
+  border-radius: 0px 4px 4px 0px;
 }
 code {
   display: inline-block;
