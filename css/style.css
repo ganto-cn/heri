@@ -156,6 +156,7 @@ header>nav>.name>.g>a {
 header>nav>.name>.i {
   display: block;
   font-size: 12px;
+  font-weight: 300;
 }
 section {
   margin: 0 20px;
